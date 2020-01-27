@@ -12,7 +12,7 @@ function createListElement() {
         ul.appendChild(li);
         input.value = "";
         li.onclick = function() {
-            li.style.cssText = 'text-decoration: line-through;'
+            li.style.cssText = "text-decoration: line-through; color: red; font-weight: bold;"
         }
         li.ondblclick = function() {
             this.parentNode.removeChild(this);
