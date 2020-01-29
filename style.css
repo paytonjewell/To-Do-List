@@ -1,33 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
+
 body {
-  height: 100vh;
+  text-align: center;
+  font-family: 'Raleway';
+  font-size: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   align-items: center;
-  font-family: Raleway, Helvetica, sans-serif;
+  height: 100vh;
   background-color: #ddd;
-  font-size: 1.5em;
 }
 
-button {
-  background-color: #222;
-  color: white;
-  margin: 0 2em;
+body * {
+padding: .5rem;
 }
 
-
-
-input {
-  padding: 1em;
-  margin-bottom: 2em;
+#enter {
+margin: 1em;
 }
 
 ul {
 list-style: none;
 }
-
 
 .done {
   text-decoration: line-through;
