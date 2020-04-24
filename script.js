@@ -36,16 +36,16 @@ setInterval(() => {
 const input = document.querySelector("input[type='text']");
 const ul = document.querySelector("ul");
 const deleteButton = document.querySelectorAll("ul a");
-
+const totalct = document.querySelector("#totalct");
 let numberItems = ul.children.length;
-console.log(numberItems);
+totalct.innerHTML = numberItems;
 
 const inputLength = () => input.value.length;
 
 const removeItem = (event) => {
   event.target.parentNode.remove();
   numberItems--;
-  console.log(numberItems);
+  totalct.innerHTML = numberItems;
 }
 
 for (let buttons of deleteButton) {
@@ -62,7 +62,7 @@ const newTask = () => {
   let removeli = (event) => {
     event.target.parentNode.remove();
     numberItems--;
-    console.log(numberItems);
+    totalct.innerHTML = numberItems;
   }
   for (let one of button) {
     one.addEventListener("click", removeli);
@@ -74,7 +74,7 @@ const addTaskEnter = (e) => {
   if (inputLength() > 0 && event.keyCode === 13) {
     newTask();
     numberItems++;
-    console.log(numberItems);
+    totalct.innerHTML = numberItems;
   }
 }
 
