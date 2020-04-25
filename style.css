@@ -1,31 +1,204 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
+  background-color: thistle;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Raleway', sans-serif;
+}
+
+.alignment {
+  min-height: 100vh;
+}
+
+.app {
+  width: 40%;
+}
+
+.topbar {
+  padding: 1.5em;
+  background-image: linear-gradient(90deg, rgba(224, 195, 252, 0.7) 0%, rgba(142, 197, 252, 0.7) 100%), url('https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+#today {
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+#month {
+  font-size: 1.2em;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.tasks ul,
+.tasks li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tasks li {
+  border-bottom: 1px solid lightgrey;
+}
+
+.tasks li span {
+  margin-left: 30px;
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.tasks label {
+  cursor: pointer;
+  display: block;
+  padding: 0 1em;
+  position: relative;
+  line-height: 3em;
+  margin-bottom: 0;
+}
+
+.tasks label:hover {
+  background-color: rgb(228, 228, 228);
+}
+
+.tasks label a {
+  background-color: rgb(255, 0, 0);
+  border-radius: 50%;
+  color: #fff;
+  float: right;
+  font-weight: bold;
+  line-height: 1;
+  height: 1em;
+  width: 1em;
   text-align: center;
-  font-family: 'Raleway';
-  font-size: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #ddd;
+  text-decoration: none;
+  margin-top: 18px;
+  display: none;
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
 }
 
-body * {
-padding: .5rem;
+.tasks label:hover a {
+  display: block;
 }
 
-#enter {
-margin: 1em;
+.tasks label a:hover {
+  background-color: #000;
+  color: red;
 }
 
-ul {
-list-style: none;
+.tasks input[type="checkbox"] {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
 }
 
-.done {
+.tasks input[type="checkbox"]+i {
+  background-color: thistle;
+  border-radius: 50%;
+  height: 1em;
+  width: 1em;
+  display: block;
+  position: absolute;
+  top: 18px;
+  z-index: 1;
+}
+
+.tasks input[type="checkbox"]:checked+i::after {
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 8px;
+  left: 4px;
+  position: absolute;
+  top: 4px;
+  width: 8px;
+  z-index: 2;
+}
+
+.tasks input[type="checkbox"]:checked~span {
+  color: darkgrey;
   text-decoration: line-through;
+}
+
+input[type="text"] {
+  background-color: rgba(216, 191, 216, 0.445);
+  border: none;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 1em 1em;
+  width: 100%;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+
+@media (max-width: 767px) {
+  .app {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tasks label a {
+    display: block;
+  }
+}
+
+.tasks ::-webkit-input-placeholder {
+  color: grey;
+}
+
+.tasks li.remove {
+  -webkit-animation: collapseItem 300ms ease;
+  animation: collapseItem 300ms ease;
+  -webkit-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+}
+
+.tasks li.remove span {
+  color: lightgrey;
+  text-decoration: line-through;
+}
+
+@keyframes collapseItem {
+  0% {
+    -ms-transform: perspective(500px) rotateX(0deg);
+    transform: perspective(500px) rotateX(0deg);
+  }
+
+  100% {
+    -ms-transform: perspective(500px) rotateX(-90deg);
+    transform: perspective(500px) rotateX(-90deg);
+  }
+}
+
+@-webkit-keyframes collapseItem {
+  0% {
+    -webkit-transform: perspective(500px) rotateX(0deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(500px) rotateX(-90deg);
+  }
 }
