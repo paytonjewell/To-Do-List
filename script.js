@@ -22,6 +22,9 @@ setInterval(() => {
     ampm.innerHTML = "AM";
   }
   minutes.innerHTML = now.getMinutes() + " ";
+  if (now.getMinutes() < 10) {
+    minutes.innerHTML = "0" + now.getMinutes();
+  }
 }, 1000)
 
 
